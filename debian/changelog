@@ -1,0 +1,5 @@
+podman (4.4.4-0+exo1) jammy; urgency=medium
+
+  * Initial release
+
+ -- Alexandros Afentoulis <alexandros.afentoulis@exoscale.ch>  Thu, 13 Apr 2023 12:42:03 +0300
