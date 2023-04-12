@@ -12,3 +12,5 @@ BUILDTAGS := apparmor,ostree,seccomp,selinux,systemd,libsubid
 
 override_dh_auto_build:
 	make BUILDTAGS="$(BUILDTAGS)"
+
+override_dh_auto_test:
