@@ -797,7 +797,8 @@ package-install: package  ## Install rpm packages
 	/usr/bin/podman info  # will catch a broken conmon
 
 .PHONY: install
-install: install.bin install.remote install.man install.systemd  ## Install binaries to system locations
+#install: install.bin install.remote install.man install.systemd  ## Install binaries to system locations
+install: install.bin install.systemd  ## Install binaries to system locations
 
 .PHONY: install.catatonit
 install.catatonit:
@@ -825,13 +826,13 @@ install.bin:
 	test -z "${SELINUXOPT}" || chcon --verbose --reference=$(DESTDIR)$(BINDIR)/podman bin/podman
 	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(LIBEXECPODMAN)
 ifneq ($(shell uname -s),FreeBSD)
-	install ${SELINUXOPT} -m 755 bin/rootlessport $(DESTDIR)$(LIBEXECPODMAN)/rootlessport
-	test -z "${SELINUXOPT}" || chcon --verbose --reference=$(DESTDIR)$(LIBEXECPODMAN)/rootlessport bin/rootlessport
-	install ${SELINUXOPT} -m 755 bin/quadlet $(DESTDIR)$(LIBEXECPODMAN)/quadlet
-	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(SYSTEMDGENERATORSDIR)
-	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(SYSTEMDGENERATORSDIR)/podman-system-generator
-	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)
-	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)/podman-user-generator
+#	install ${SELINUXOPT} -m 755 bin/rootlessport $(DESTDIR)$(LIBEXECPODMAN)/rootlessport
+#	test -z "${SELINUXOPT}" || chcon --verbose --reference=$(DESTDIR)$(LIBEXECPODMAN)/rootlessport bin/rootlessport
+#	install ${SELINUXOPT} -m 755 bin/quadlet $(DESTDIR)$(LIBEXECPODMAN)/quadlet
+#	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(SYSTEMDGENERATORSDIR)
+#	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(SYSTEMDGENERATORSDIR)/podman-system-generator
+#	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)
+#	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)/podman-user-generator
 	install ${SELINUXOPT} -m 755 -d ${DESTDIR}${TMPFILESDIR}
 	install ${SELINUXOPT} -m 644 contrib/tmpfile/podman.conf ${DESTDIR}${TMPFILESDIR}/podman.conf
 endif
