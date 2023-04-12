@@ -1,7 +1,14 @@
 #!/usr/bin/make -f
 
+export XDG_CACHE_HOME=/tmp/gocache
+
 %:
 	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
 
 override_dh_auto_install:
 	dh_auto_install -- --no-source
+
+BUILDTAGS := apparmor,ostree,seccomp,selinux,systemd,libsubid
+
+override_dh_auto_build:
+	make BUILDTAGS="$(BUILDTAGS)"
