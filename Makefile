@@ -212,7 +212,7 @@ all: binaries docs
 ifeq ($(shell uname -s),FreeBSD)
 binaries: podman podman-remote ## Build podman and podman-remote binaries
 else
-binaries: podman podman-remote rootlessport quadlet ## Build podman, podman-remote and rootlessport binaries quadlet
+binaries: podman # podman-remote rootlessport quadlet ## Build podman, podman-remote and rootlessport binaries quadlet
 endif
 
 # Extract text following double-# for targets, as their description for
