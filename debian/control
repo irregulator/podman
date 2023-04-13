@@ -38,7 +38,8 @@ XS-Go-Import-Path: github.com/containers/podman
 Package: podman
 Architecture: any
 Depends: ${misc:Depends},
-         ${shlibs:Depends}
+         ${shlibs:Depends},
+         libsubid4,
 Built-Using: ${misc:Built-Using}
 Description: Podman: A tool for managing OCI containers and pods. (program)
  [Image: PODMAN logo]
