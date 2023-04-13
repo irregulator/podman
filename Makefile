@@ -833,8 +833,8 @@ ifneq ($(shell uname -s),FreeBSD)
 #	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(SYSTEMDGENERATORSDIR)/podman-system-generator
 #	install ${SELINUXOPT} -d -m 755 $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)
 #	ln -sfr $(DESTDIR)$(LIBEXECPODMAN)/quadlet $(DESTDIR)$(USERSYSTEMDGENERATORSDIR)/podman-user-generator
-	install ${SELINUXOPT} -m 755 -d ${DESTDIR}${TMPFILESDIR}
-	install ${SELINUXOPT} -m 644 contrib/tmpfile/podman.conf ${DESTDIR}${TMPFILESDIR}/podman.conf
+#	install ${SELINUXOPT} -m 755 -d ${DESTDIR}${TMPFILESDIR}
+#	install ${SELINUXOPT} -m 644 contrib/tmpfile/podman.conf ${DESTDIR}${TMPFILESDIR}/podman.conf
 endif
 
 .PHONY: install.modules-load
