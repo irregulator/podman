@@ -1,2 +1,3 @@
 usr/bin/podman
 lib/systemd
+usr/lib/podman/quadlet
